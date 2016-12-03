@@ -1,17 +1,29 @@
+<h1>Companies</h1>
 <ul>
-  <li *ngFor="let item of items | async">
-    {{ item.text }}
+  <li *ngFor="let company of companies | async">
+    <input type="text" #updatecompanyname [value]="company.name" />
+    <button (click)="updateCompany(company.$key, updatecompanyname.value)">Update company</button>
+    <button (click)="deleteCompany(company.$key)">Delete company</button> {{company | json}}
   </li>
 </ul>
-<div>
-  <h4>Filter by size</h4>
-  <button (click)="filterBy('small')">Small</button>
-  <button (click)="filterBy('medium')">Medium</button>
-  <button (click)="filterBy('large')">Large</button>
-</div>
+<input type="text" #newcompany />
+<button (click)="addCompany(newcompany.value)">Add company</button>
+<button (click)="deleteAllCompanies()">Delete all companies</button>
 
-<br>
+<hr>
+<h1>Users</h1>
+<ul>
+  <li *ngFor="let user of users | async">
+    <input type="text" #updateuser [value]="user.name" />
+    <button (click)="updateUser(user.$key, updateuser.value)">Update user</button>
+    <button (click)="deleteUser(user.$key)">Delete user</button> {{user | json}}
+  </li>
+</ul>
+<input type="text" #newuser />
+<button (click)="addUser(newuser.value)">Add user</button>
+<button (click)="deleteAllUsers()">Delete all users</button>
 
+<hr>
 <div> {{ (af.auth | async)?.uid }} </div>
 <button (click)="login()">Login</button>
 <button (click)="logout()">Logout</button>

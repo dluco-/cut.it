@@ -1,16 +1,20 @@
 {
-    "items": [
+    "companies": [
         {
-            "size": "small",
-            "text": "sample small text"
+            "name": "Salong Fager"
         },
         {
-            "size": "medium",
-            "text": "sample medium text"
+            "name": "Cut and Clean"
+        }
+    ],
+    "users": [
+        {
+            "name": "Dennis Olsson",
+            "companies": []
         },
         {
-            "size": "large",
-            "text": "sample large text"
+            "name": "Evelina Fagerström",
+            "companies": []
         }
     ]
 }

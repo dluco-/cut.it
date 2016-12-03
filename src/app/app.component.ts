@@ -1,34 +1,54 @@
 import { Component } from '@angular/core';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
-import { Subject } from 'rxjs/Subject';
+import { Company } from './Company';
+import { User } from './User';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
-  items: FirebaseListObservable<any[]>;
-  sizeSubject: Subject<any>;
+    companies: FirebaseListObservable<Company[]>;
+    items: FirebaseListObservable<any>;
+    users: FirebaseListObservable<User[]>;
+    constructor(public af: AngularFire) {
+        this.companies = af.database.list('/companies');
+        this.users = af.database.list('/users');
+    }
 
-  constructor(public af: AngularFire) {
-    this.sizeSubject = new Subject();
-    this.items = af.database.list('/items', {
-      query: {
-        orderByChild: 'size',
-        equalTo: this.sizeSubject
-      }
-    });
-  }
-  filterBy(size: string) {
-    this.sizeSubject.next(size);
-  }
+    addCompany(newCompany: string) {
+        this.companies.push({ name: newCompany });
+    }
+    updateCompany(key: string, newName: string) {
+        this.companies.update(key, { name: newName });
+    }
+    deleteCompany(key: string) {
+        this.companies.remove(key);
+    }
+    deleteAllCompenies() {
+        this.companies.remove();
+    }
 
-  login() {
-    this.af.auth.login();
-  }
+    addUser(newUser: string) {
+        this.users.push({ name: newUser });
+    }
+    updateUser(key: string, newName) {
+        this.users.update(key, { name: newName });
+    }
+    deleteUser(key: string) {
+        this.users.remove(key);
+    }
+    deleteAllUsers() {
+        this.companies.remove();
+    }
 
-  logout() {
-    this.af.auth.logout();
-  }
+    login() {
+        this.af.auth.login();
+    }
+
+    logout() {
+        this.af.auth.logout();
+    }
 }
