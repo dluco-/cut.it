@@ -1,10 +1,10 @@
-import { CutitAngular2Page } from './app.po';
+import { CutitPage } from './app.po';
 
-describe('cutit-angular-2 App', function() {
-  let page: CutitAngular2Page;
+describe('cutit App', function() {
+  let page: CutitPage;
 
   beforeEach(() => {
-    page = new CutitAngular2Page();
+    page = new CutitPage();
   });
 
   it('should display message saying app works', () => {

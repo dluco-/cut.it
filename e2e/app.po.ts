@@ -1,6 +1,6 @@
 import { browser, element, by } from 'protractor';
 
-export class CutitAngular2Page {
+export class CutitPage {
   navigateTo() {
     return browser.get('/');
   }
