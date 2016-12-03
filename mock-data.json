@@ -1,0 +1,16 @@
+{
+    "items": [
+        {
+            "size": "small",
+            "text": "sample small text"
+        },
+        {
+            "size": "medium",
+            "text": "sample medium text"
+        },
+        {
+            "size": "large",
+            "text": "sample large text"
+        }
+    ]
+}
