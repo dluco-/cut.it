@@ -1,0 +1,13 @@
+<h1>Companies</h1>
+<ul>
+  <li *ngFor="let company of companies | async">
+    <input type="text" #updateCompanyName [value]="company.name" />
+    <button (click)="updateCompany(company.$key, updateCompanyName.value)">Update company</button>
+    <button (click)="deleteCompany(company.$key)">Delete company</button> {{company | json}}
+  </li>
+</ul>
+
+<hr>
+<input type="text" #addNewCompany />
+<button (click)="addCompany(addNewCompany.value)">Add company</button>
+<button (click)="deleteAllCompanies()">Delete all companies</button>

@@ -1,0 +1,13 @@
+<h1>Users</h1>
+<ul>
+  <li *ngFor="let user of users | async">
+    <input type="text" #updateUserName [value]="user.name" />
+    <button (click)="updateUser(user.$key, updateUserName.value)">Update user</button>
+    <button (click)="deleteUser(user.$key)">Delete user</button> {{user | json}}
+  </li>
+</ul>
+
+<hr>
+<input type="text" #addNewUser />
+<button (click)="addUser(addNewUser.value)">Add user</button>
+<button (click)="deleteAllUsers()">Delete all users</button>

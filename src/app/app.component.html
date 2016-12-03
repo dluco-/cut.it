@@ -1,32 +1,11 @@
-<h1>Companies</h1>
-<ul>
-  <li *ngFor="let company of companies | async">
-    <input type="text" #updatecompanyname [value]="company.name" />
-    <button (click)="updateCompany(company.$key, updatecompanyname.value)">Update company</button>
-    <button (click)="deleteCompany(company.$key)">Delete company</button> {{company | json}}
-  </li>
-</ul>
-<input type="text" #newcompany />
-<button (click)="addCompany(newcompany.value)">Add company</button>
-<button (click)="deleteAllCompanies()">Delete all companies</button>
-
-<hr>
-<h1>Users</h1>
-<ul>
-  <li *ngFor="let user of users | async">
-    <input type="text" #updateuser [value]="user.name" />
-    <button (click)="updateUser(user.$key, updateuser.value)">Update user</button>
-    <button (click)="deleteUser(user.$key)">Delete user</button> {{user | json}}
-  </li>
-</ul>
-<input type="text" #newuser />
-<button (click)="addUser(newuser.value)">Add user</button>
-<button (click)="deleteAllUsers()">Delete all users</button>
-
-<hr>
-<div> {{ (af.auth | async)?.uid }} </div>
-<button (click)="login()">Login</button>
-<button (click)="logout()">Logout</button>
-
-<a routerLink="/home">Customers</a>
+<h1>Nav</h1>
+<nav>
+  <a routerLink="/home">Customers</a>
+  <a routerLink="/users">Users</a>
+  <a routerLink="/companies">Companies</a>
+  <button (click)="login()">Login</button>
+  <button (click)="logout()">Logout</button>
+</nav>
+<div>AuthKey: {{ (af.auth | async)?.uid }} </div>
+<br>
 <router-outlet></router-outlet>

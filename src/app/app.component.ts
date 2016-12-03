@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { AngularFire, FirebaseListObservable } from 'angularfire2';
-import { Company } from './Company';
-import { User } from './User';
+import { AngularFire } from 'angularfire2';
+// import { User } from './User';
 
 @Component({
     selector: 'app-root',
@@ -10,39 +9,36 @@ import { User } from './User';
 })
 
 export class AppComponent {
-    companies: FirebaseListObservable<Company[]>;
-    items: FirebaseListObservable<any>;
-    users: FirebaseListObservable<User[]>;
-    constructor(public af: AngularFire) {
-        this.companies = af.database.list('/companies');
-        this.users = af.database.list('/users');
-    }
+    // companies: FirebaseListObservable<Company[]>;
+    // items: FirebaseListObservable<any>;
+    // users: FirebaseListObservable<User[]>;
+    constructor(public af: AngularFire) { }
 
-    addCompany(newCompany: string) {
-        this.companies.push({ name: newCompany });
-    }
-    updateCompany(key: string, newName: string) {
-        this.companies.update(key, { name: newName });
-    }
-    deleteCompany(key: string) {
-        this.companies.remove(key);
-    }
-    deleteAllCompenies() {
-        this.companies.remove();
-    }
+    // addCompany(newCompany: string) {
+    //     this.companies.push({ name: newCompany });
+    // }
+    // updateCompany(key: string, newName: string) {
+    //     this.companies.update(key, { name: newName });
+    // }
+    // deleteCompany(key: string) {
+    //     this.companies.remove(key);
+    // }
+    // deleteAllCompenies() {
+    //     this.companies.remove();
+    // }
 
-    addUser(newUser: string) {
-        this.users.push({ name: newUser });
-    }
-    updateUser(key: string, newName) {
-        this.users.update(key, { name: newName });
-    }
-    deleteUser(key: string) {
-        this.users.remove(key);
-    }
-    deleteAllUsers() {
-        this.companies.remove();
-    }
+    // addUser(newUser: string) {
+    //     this.users.push({ name: newUser });
+    // }
+    // updateUser(key: string, newName) {
+    //     this.users.update(key, { name: newName });
+    // }
+    // deleteUser(key: string) {
+    //     this.users.remove(key);
+    // }
+    // deleteAllUsers() {
+    //     this.companies.remove();
+    // }
 
     login() {
         this.af.auth.login();

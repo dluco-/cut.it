@@ -16,5 +16,19 @@
             "name": "Evelina Fagerström",
             "companies": []
         }
+    ],
+    "customers":[
+        {
+            "name": "Emma Fagerström",
+            "phone": "0707 10 20 30"
+        },
+        {
+            "name": "Dennis Olsson",
+            "phone": "0760208603"
+        },
+        {
+            "name": "Kalle Olsson",
+            "phone": "0760 10 20 40"
+        }
     ]
 }

@@ -1,3 +1,13 @@
-<p>
-  customer works!
-</p>
+<h1>Customers</h1>
+<ul>
+  <li *ngFor="let customer of customers | async">
+    <input type="text" #updateCustomerName [value]="customer.name" />
+    <button (click)="updateCustomer(customer.$key, updateCustomerName.value)">Update customer</button>
+    <button (click)="deleteCustomer(customer.$key)">Delete customer</button> {{customer | json}}
+  </li>
+</ul>
+
+<hr>
+<input type="text" #addNewCustomer />
+<button (click)="addCustomer(addNewCustomer.value)">Add customer</button>
+<button (click)="deleteAllCustomers()">Delete all customers</button>
