@@ -10,6 +10,16 @@ import { CustomerComponent } from './customer/customer.component';
 import { UserComponent } from './user/user.component';
 import { CompanyComponent } from './company/company.component';
 
+// Material 2 
+import 'hammerjs';
+import { MdCoreModule } from '@angular2-material/core';
+import { MdButtonModule } from '@angular2-material/button';
+import { MdCardModule } from '@angular2-material/card';
+import { MdRadioModule } from '@angular2-material/radio';
+import { MdCheckboxModule } from '@angular2-material/checkbox';
+import { MdListModule } from '@angular2-material/list';
+import { MdInputModule } from '@angular2-material/input';
+
 // Must export the config
 const firebaseConfig = {
     apiKey: 'AIzaSyCldq7MdtidOj08PmSIASm03805o2HLhAE',
@@ -35,6 +45,13 @@ const firebaseAuthConfig = {
         BrowserModule,
         FormsModule,
         HttpModule,
+        MdCoreModule.forRoot(),
+        MdCardModule.forRoot(),
+        MdButtonModule.forRoot(),
+        MdRadioModule.forRoot(),
+        MdCheckboxModule.forRoot(),
+        MdListModule.forRoot(),
+        MdInputModule.forRoot(),
         AngularFireModule.initializeApp(firebaseConfig, firebaseAuthConfig),
         RouterModule.forRoot([
             {

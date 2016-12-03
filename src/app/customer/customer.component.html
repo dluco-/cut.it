@@ -1,13 +1,14 @@
 <h1>Customers</h1>
-<ul>
-  <li *ngFor="let customer of customers | async">
-    <input type="text" #updateCustomerName [value]="customer.name" />
-    <button (click)="updateCustomer(customer.$key, updateCustomerName.value)">Update customer</button>
-    <button (click)="deleteCustomer(customer.$key)">Delete customer</button> {{customer | json}}
-  </li>
-</ul>
+<md-list>
+  <md-list-item *ngFor="let customer of customers | async">
+    <md-input placeholder="Customer" #updateCustomerName [value]="customer.name"></md-input>
+    <button (click)="updateCustomer(customer.$key, updateCustomerName.value)" md-raised-button color="primary">Update customer</button>
+    <button (click)="deleteCustomer(customer.$key)" md-raised-button color="accent">Delete customer</button> {{customer |
+    json}}
+  </md-list-item>
+</md-list>
 
 <hr>
-<input type="text" #addNewCustomer />
-<button (click)="addCustomer(addNewCustomer.value)">Add customer</button>
-<button (click)="deleteAllCustomers()">Delete all customers</button>
+<md-input placeholder="Add Customer" #addNewCustomer></md-input><br>
+<button (click)="addCustomer(addNewCustomer.value)" md-raised-button color="primary">Add customer</button>
+<button (click)="deleteAllCustomers()" md-raised-button color="accent">Delete all customers</button>
