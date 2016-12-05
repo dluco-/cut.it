@@ -17,9 +17,9 @@ export class UserService {
       .catch(err => console.log(err, 'Cannot get users.'));
   }
 
-  addUser(newUser: string): Promise<User[]> {
+  addUser(newUser: string, newCompanyKey: string): Promise<User[]> {
     return Promise
-      .resolve(this.users.push({ name: newUser }))
+      .resolve(this.users.push({ name: newUser, company: newCompanyKey }))
       .then(resp => this.users)
       .catch(err => console.log(err, 'Cannot add user.'));
   }

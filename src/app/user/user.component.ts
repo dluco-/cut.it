@@ -1,27 +1,39 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from './user.service';
+import { CompanyService } from '../company/company.service';
 import { User } from './user';
+import { Company } from '../company/company';
 
 @Component({
   selector: 'app-user',
   // moduleId: module.id,
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css'],
-  providers: [UserService]
+  providers: [UserService, CompanyService]
 })
 export class UserComponent implements OnInit {
 
   users: User[];
+  companies: Company[];
+  selectedCompany: any = null;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private companyService: CompanyService) { }
 
   getUsers(): void {
     this.userService.getUsers()
       .then(users => this.users = users);
   }
 
-  addUser(newName: string): void {
-    this.userService.addUser(newName)
+  getCompanies(): void {
+    this.companyService.getCompanies()
+      .then(companies => {
+        this.companies = companies;
+        this.selectedCompany = companies[0];
+      });
+  }
+
+  addUser(newName: string, newCompanyKey: string): void {
+    this.userService.addUser(newName, newCompanyKey)
       .then(users => this.users = users);
   }
 
@@ -42,5 +54,6 @@ export class UserComponent implements OnInit {
 
   ngOnInit() {
     this.getUsers();
+    this.getCompanies();
   }
 }

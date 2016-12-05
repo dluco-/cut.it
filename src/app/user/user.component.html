@@ -6,8 +6,10 @@
     <button (click)="deleteUser(user.$key)">Delete user</button> {{user | json}}
   </li>
 </ul>
-
 <hr>
 <input type="text" #addNewUser />
-<button (click)="addUser(addNewUser.value)">Add user</button>
+<select [(ngModel)]="selectedCompany">
+     <option *ngFor="let company of companies | async" [value]="company.$key">{{company.name}}</option>
+</select>
+<button (click)="addUser(addNewUser.value, selectedCompany)">Add user</button>
 <button (click)="deleteAllUsers()">Delete all users</button>
