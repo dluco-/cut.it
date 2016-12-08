@@ -1,34 +1,43 @@
 {
-    "companies": [
-        {
+    "companies": {
+        "-KYAPRW6SuP2rm_O5S2o": {
             "name": "Salong Fager"
         },
-        {
+        "-KYEsBE-B0v7l9z9gPec": {
             "name": "Cut and Clean"
         }
-    ],
-    "users": [
-        {
-            "name": "Dennis Olsson",
-            "companies": []
-        },
-        {
-            "name": "Evelina Fagerström",
-            "companies": []
+    },
+    "users": {
+        "-KYFM1f6nFkPxHFWPFV3": {
+            "name": "Dennis Olsson"
         }
-    ],
-    "customers":[
-        {
+    },
+    "userCustomers": {
+        "-KYFM1f6nFkPxHFWPFV3": {
+            "KASDASD3ASD": "Emma Fagerström",
+            "AMSKDLASILSA": "Kalle Olsson"
+        }
+    },
+    "customers": {
+        "KASDASD3ASD": {
             "name": "Emma Fagerström",
             "phone": "0707 10 20 30"
         },
-        {
+        "MKLMKLAAL": {
             "name": "Dennis Olsson",
             "phone": "0760208603"
         },
-        {
+        "AMSKDLASILSA": {
             "name": "Kalle Olsson",
-            "phone": "0760 10 20 40"
+            "phone": "0760 10 20 50"
+        },
+        "KMOLSDFP4": {
+            "name": "Gudrun Ohlson",
+            "phone": "0760 10 20 60"
+        },
+        "ADASKLMIO5": {
+            "name": "Erik Wahlgren",
+            "phone": "0760 10 20 70"
         }
-    ]
+    }
 }

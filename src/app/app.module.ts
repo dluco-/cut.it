@@ -3,12 +3,13 @@ import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
+import { AngularFire, AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
 
 import { AppComponent } from './app.component';
 import { CustomerComponent } from './customer/customer.component';
 import { UserComponent } from './user/user.component';
 import { CompanyComponent } from './company/company.component';
+import { LoginComponent } from './login/login.component';
 
 // Must export the config
 const firebaseConfig = {
@@ -30,6 +31,7 @@ const firebaseAuthConfig = {
         CustomerComponent,
         UserComponent,
         CompanyComponent,
+        LoginComponent,
     ],
     imports: [
         BrowserModule,
@@ -53,6 +55,10 @@ const firebaseAuthConfig = {
             {
                 path: 'companies',
                 component: CompanyComponent
+            },
+            {
+                path: 'login',
+                component: LoginComponent
             }
         ])
     ],

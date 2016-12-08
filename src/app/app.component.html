@@ -3,9 +3,5 @@
   <a routerLink="/home">Customers</a>
   <a routerLink="/users">Users</a>
   <a routerLink="/companies">Companies</a>
-  <button (click)="login()">Login</button>
-  <button (click)="logout()">Logout</button>
 </nav>
-<div>AuthKey: {{ (af.auth | async)?.uid }} </div>
-<br>
 <router-outlet></router-outlet>
