@@ -1,7 +1,11 @@
-<h1>Nav</h1>
-<nav>
-  <a routerLink="/home">Customers</a>
-  <a routerLink="/users">Users</a>
-  <a routerLink="/companies">Companies</a>
-</nav>
-<router-outlet></router-outlet>
+<div class="ui pointing borderless inverted top attached menu">
+  <div class="header item">cut.it</div>
+  <a class="item" routerLink="/home">Customers</a>
+  <a class="item" routerLink="/users">Users</a>
+  <a class="item" routerLink="/companies">Companies</a>
+  <a class="item" routerLink="/login">Login</a>
+</div>
+
+<div class="ui vertical aligned segment">
+  <router-outlet></router-outlet>
+</div>

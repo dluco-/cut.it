@@ -1,13 +1,16 @@
 <h1>Customers</h1>
 <ul>
   <li *ngFor="let customer of customers | async">
-    <input type="text" #updateCustomerName [value]="customer.name" />
-    <button (click)="updateCustomer(customer.$key, updateCustomerName.value)">Update customer</button>
-    <button (click)="deleteCustomer(customer.$key)">Delete customer</button> {{customer | json}}
+    <input type="text" #updateCustomerName [value]="customer.name" (keyup.enter)="updateCustomer(customer.$key, updateCustomerName.value)"
+    />
+    <button (click)="deleteCustomer(customer.$key)">Delete customer</button>
+    <pre>
+      {{customer | json}}
+    </pre>
   </li>
 </ul>
 
 <hr>
-<input type="text" #addNewCustomer />
-<button (click)="addCustomer(addNewCustomer.value)">Add customer</button>
+<input placeholder="Add new Customer" type="text" #addNewCustomer  (keyup.enter)="addCustomer(addNewCustomer.value)"/>
+<br>
 <button (click)="deleteAllCustomers()">Delete all customers</button>
