@@ -41,11 +41,11 @@ const firebaseAuthConfig = {
         RouterModule.forRoot([
             {
                 path: '',
-                redirectTo: '/home',
+                redirectTo: '/customers',
                 pathMatch: 'full'
             },
             {
-                path: 'home',
+                path: 'customers',
                 component: CustomerComponent
             },
             {

@@ -1,16 +1,18 @@
-<h1>Customers</h1>
-<ul>
-  <li *ngFor="let customer of customers | async">
-    <input type="text" #updateCustomerName [value]="customer.name" (keyup.enter)="updateCustomer(customer.$key, updateCustomerName.value)"
-    />
-    <button (click)="deleteCustomer(customer.$key)">Delete customer</button>
-    <pre>
-      {{customer | json}}
-    </pre>
-  </li>
-</ul>
-
-<hr>
-<input placeholder="Add new Customer" type="text" #addNewCustomer  (keyup.enter)="addCustomer(addNewCustomer.value)"/>
-<br>
-<button (click)="deleteAllCustomers()">Delete all customers</button>
+<div class="ui inverted top attached header">
+  <h2>Customers</h2>
+</div>
+<div class="ui secondary attached segment">
+  <div class="ui list">
+    <div class="item" *ngFor="let customer of customers | async">
+      <div class="ui action input">
+        <input type="text" #updateCustomerName [value]="customer.name" (keyup.enter)="updateCustomer(customer.$key, updateCustomerName.value)"
+        />
+        <button class="ui negative button" (click)="deleteCustomer(customer.$key)">Delete customer</button>
+      </div>
+    </div>
+  </div>
+  <div class="ui input">
+    <input placeholder="Add new Customer" type="text" #addNewCustomer (keyup.enter)="addCustomer(addNewCustomer.value)" />
+  </div>
+  <button class="ui negative button" (click)="deleteAllCustomers()">Delete all customers</button>
+</div>
